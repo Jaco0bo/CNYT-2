@@ -1,3 +1,92 @@
+import numpy as np
+import math
+
+
+def generar_mat(filas, columnas):
+    f = -1
+    c = -1
+    matriz = []
+    for i in range(0, filas):
+        col = []
+        f += 1
+        for j in range(0, columnas):
+            c += 1
+            valor = (input(f"Ingrese el numero complejo de la posicion {i},{j}: "))
+            col.append(valor)
+        matriz.append(col)
+    return matriz
+
+
+def matriz_comp(a):
+    c = []
+    for fila in a:
+        fila_compleja = [complex(elemento) for elemento in fila]
+        c.append(fila_compleja)
+    return c
+
+
+def mult_cmat(a, b):
+    """Multiplica dos matrices complejas
+    (list2D,list2D) -> List2D
+    """
+    multiplicacion = np.dot(a, b)
+    return multiplicacion
+
+
+def accion_mv(a, b):
+    """Regresa la accion de una
+    matriz sobre un vector complejos
+    (list2d, list2D) -> list2D
+    """
+    accion = np.dot(a, b)
+    return accion
+
+
+def prod_int(a, b):
+    """Calcula el producto
+    interno de dos vectores
+    (list,list) -> complex
+    """
+    a = np.array(a, dtype=complex)
+    b = np.array(b, dtype=complex)
+
+    interno = np.sum(np.conjugate(a) * b)
+
+    return interno
+
+
+def norma_v(a):
+    """Regresa la norma de un
+    vector complejo
+    (list) -> float
+    """
+    a = np.array(a, dtype=complex)
+    norma = math.sqrt(np.sum(np.conjugate(a) * a))
+    return norma
+
+
+def dist_v(v1, v2):
+    """Calcula la distancia
+    entre dos vectores
+    (list,list) -> float
+    """
+    v1 = np.array(v1, dtype=complex)
+    v2 = np.array(v2, dtype=complex)
+    v3 = np.transpose(v1) - v2
+    resp = norma_v(v3)
+    return resp
+
+
+def val_and_vec(matriz):
+    """Devuelve los valores y vectores
+    propios de una matriz compleja
+    (list2D) -> list,list
+    """
+    eigenvalues, eigenvectors = np.linalg.eig(matriz)
+    eigenvalues = np.round(eigenvalues, 2)
+    eigenvectors = np.round(eigenvectors, 2)
+    return eigenvalues, eigenvectors
+
 def adicion_vect(matriz):
     """Realiza la operacion de suma
     de vectores complejos
@@ -99,7 +188,7 @@ def adic_matc(matriz1, matriz2):
     return matriz_suma
 
 
-def inv_adic_mat(matriz1,  matriz2):
+def inv_adic_mat(matriz1, matriz2):
     """Resta 2 matrices complejas 2x2
     y regresa el resultado
     (list2D,list2D) -> list2D
@@ -209,7 +298,7 @@ def adjunta_c():
 
 
 def main():
-    a = input("Primer vector")
+    """a = input("Primer vector")
     b = input("segundo vector")
     primer = a.split(",")
     segundo = b.split(",")
@@ -287,6 +376,76 @@ def main():
         complejo = complex(a, b)
         print(complejo.real)
         print(f"{complejo.imag}j")
+
+    filas = int(input("Filas primera matriz? "))
+    columnas = int(input("columnas primera matriz? "))
+    a = generar_mat(filas, columnas)
+    matriz1 = matriz_comp(a)
+    print()
+    print("segunda matriz")
+    filas2 = int(input("Filas segunda matriz? "))
+    columnas2 = int(input("columnas segunda matriz? "))
+    if columnas != filas2:
+        print("Estas matrices no se pueden multiplicar")
+    else:
+        b = generar_mat(filas2, columnas2)
+        matriz2 = matriz_comp(b)
+        mult = mult_cmat(matriz1, matriz2)
+        print(mult)
+
+    print()
+    print("matriz")
+    filas = int(input("Filas primera matriz? "))
+    columnas = int(input("columnas segunda matriz? "))
+    a = generar_mat(filas, columnas)
+    matriz1 = matriz_comp(a)
+    print()
+    print("Vector")
+    a = generar_mat(columnas, 1)
+    vector = matriz_comp(a)
+    acc = accion_mv(matriz1, vector)
+    print(acc)
+    print()
+    print("primer vector: ")
+    a = input("Componentes del vector1 separados por comas ")
+    vect1 = a.split(",")
+    b = input("Componentes del vector2 separados por comas ")
+    vect2 = b.split(",")
+    if len(vect1) != len(vect2):
+        print("Error, los vectores no son del mismo tamaño")
+    else:
+        r = prod_int(vect1, vect2)
+        print(r)
+    print()
+    v = input("Componentes del vector separados por comas: ")
+    v1 = v.split(",")
+    lo = norma_v(v1)
+    print(lo)
+    print()
+    print("primer vector: ")
+    a = input("Componentes del vector1 separados por comas ")
+    vect1 = a.split(",")
+    b = input("Componentes del vector2 separados por comas ")
+    vect2 = b.split(",")
+    if len(vect1) != len(vect2):
+        print("Error, los vectores no son del mismo tamaño")
+    else:
+        z = dist_v(vect1, vect2)
+        print(z)"""
+    print()
+    filas = int(input("Filas primera matriz? "))
+    columnas = int(input("columnas primera matriz? "))
+    a = generar_mat(filas, columnas)
+    matriz1 = matriz_comp(a)
+    valores, vectores = val_and_vec(matriz1)
+    print()
+    print("valores propios: ")
+    print(valores)
+    print()
+    print("vectores propios")
+    print(vectores)
+
+
 
 
 main()
