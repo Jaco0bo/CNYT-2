@@ -60,7 +60,7 @@ def esc_matco(matriz, x):
     return matriz * x
 
 
-def tranpuesta(a):
+def transpuesta(a):
     """Regresa la transpuesta
     de una matriz o vector
     (List2D) -> List2D
@@ -83,7 +83,7 @@ def adjunta(a):
     de una matriz o vector
     (list2D) -> list2D
     """
-    r = conjugada(tranpuesta(a))
+    r = conjugada(transpuesta(a))
     return r
 
 
@@ -190,4 +190,5 @@ def prd_ten(matriz1, matriz2):
     return tensor
 
 
-print(matriz_herm([[5, 4+5j, 6-16j], [4-5j, 13, 7], [6+16j, 7, -2.1]]))
+
+
