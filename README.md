@@ -23,7 +23,7 @@ En este repositorio encontrara distintas funciones que realizan las siguientes o
 Ademas encontrara un archivo ".gitignore" que describe que archivos dejar por fuera del control de versiones. 
 
 
-## Prerrequisitos 💻✔
+## Prerrequisitos 💻
 Para correr este programa en su ordenador debera tener instalado:
 
 - Libreria Numpy
