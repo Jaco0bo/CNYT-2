@@ -1,5 +1,5 @@
 # CNYT-2
-## Operaciones complejas con vectores y matrizes en python 🧾
+## Operaciones complejas con vectores y matrices en python 🧾
 En este repositorio encontrara distintas funciones que realizan las siguientes operaciones: 
 - Adición de vectores complejos.
 - Inverso (aditivo) de un vector complejos.
@@ -20,8 +20,17 @@ En este repositorio encontrara distintas funciones que realizan las siguientes o
 - Revisar si una matriz es Hermitiana
 - Producto tensor de dos matrices/vectores
 
+Ademas encontrara un archivo ".gitignore" que describe que archivos dejar por fuera del control de versiones. 
+
+
 ## Prerrequisitos 
-- libreia Numpy
+Para correr este programa en su ordenador debera tener instalado:
+
+- Libreria Numpy
 - Python
 
-## 
+## Entorno de pruebas
+En este repositorio encontrara tambien un codigo que le permitira corroborar que las funciones operan correctamente,
+para utilizarlas simplemente escoja la funcion que desea probar y meta el resultado de una operacion que sepa que es correcta
+y comparela con el valor que arroja la función, si son iguales el programa regresara "ok".
+
