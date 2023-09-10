@@ -23,13 +23,13 @@ En este repositorio encontrara distintas funciones que realizan las siguientes o
 Ademas encontrara un archivo ".gitignore" que describe que archivos dejar por fuera del control de versiones. 
 
 
-## Prerrequisitos 
+## Prerrequisitos 💻✔
 Para correr este programa en su ordenador debera tener instalado:
 
 - Libreria Numpy
 - Python
 
-## Entorno de pruebas
+## Entorno de pruebas ✔️
 En este repositorio encontrara tambien un codigo que le permitira corroborar que las funciones operan correctamente,
 para utilizarlas simplemente escoja la funcion que desea probar y meta el resultado de una operacion que sepa que es correcta
 y comparela con el valor que arroja la función, si son iguales el programa regresara "ok".
